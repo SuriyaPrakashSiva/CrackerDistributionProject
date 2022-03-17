@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>CrackerDistribution</title>
+<link rel="stylesheet" type="text/css" th:href=@{/user.css}>
+</head>
+<body>
+	<div class="headColoumn">
+		<header>
+			<img th:src=@{name.JPG} height="65px" width="300px">
+		</header>
+	</div>
+	<div class="headColoumn">
+		<nav>
+			<th:block sec:authorize="isAuthenticated()">
+               Hello
+               <a class="buynow" th:href="@{/admin/accountInfo}"
+					th:utext="${#request.userPrincipal.name}">..</a>
+               &nbsp;|&nbsp;
+               <a th:href="@{/admin/logout}"><button class="browse">Logout</button></a>
+
+			</th:block>
+			<th:block sec:authorize="hasAnyRole('ROLE_MANAGER','ROLE_EMPLOYEE')">
+				<a th:href="@{/admin/orderList}">
+					<button class="customerinfo">Order List</button>
+				</a>
+			</th:block>
+			<th:block sec:authorize="hasRole('ROLE_MANAGER')">
+				<a th:href="@{/admin/product}">
+					<button class="delete">Create Product</button>
+				</a>
+				<a th:href="@{/aProductList}"><button class="customerinfo">Product
+						List</button></a>
+			</th:block>
+
+
+		</nav>
+	</div>
+	<div>
+		<p style="text-align: center; color: floralwhite;"
+			th:text="${#temporals.format(localDateTime, 'dd-MM-yyyy HH:mm')}"></p>
+	</div>
+</body>
+</html>

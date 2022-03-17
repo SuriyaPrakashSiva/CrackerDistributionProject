@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title>Login</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/user.css}">
+   </head>
+   <body>
+   		<div class="headColoumn" 
+			xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+		<header>
+			<img th:src=@{name.JPG} height="65px" width="300px">
+		</header>
+	</div>
+	<div class="headColoumn">
+		<nav>
+			<a th:href="@{/}"><button class="browse">Home</button></a>
+		</nav>
+	</div>
+
+       <section>
+      <div class="page-title">Login (For Employee, Manager)</div>
+       
+      <div class="login-container">
+         <h3>Enter username and password</h3>
+         <br>
+         <!-- /login?error=true -->
+         <th:block th:if="${#session != null && #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}">
+             <div th:if= "${#request.getParameter('error') == 'true'}"
+                style="color: red; margin: 10px 0px;">
+                Login Failed!!!<br /> Reason :
+                <span th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}"></span>
+             </div>
+         </th:block>
+          <div style="padding: 10px 250px 15px 550px; ">
+         <form style="text-align:center;" method="POST"
+            th:action="@{/j_spring_security_check}">
+            <table>
+               <tr>
+                  <td>User Name *</td>
+                  <td><input name="userName" /></td>
+               </tr>
+               <tr>
+                  <td>Password *</td>
+                  <td><input type="password" name="password" /></td>
+               </tr>
+               <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                      <input class="buynow" type="submit" value="Login" />
+                      <input class="delete" type="reset"  value="Reset" />
+                  </td>
+               </tr>
+            </table>
+         </form>
+          </div>
+         <span class="error-message" th:utext="${error}"></span>
+      </div>
+       
+      <!--  <div style="text-align:left">
+          <h3>User/Password:</h3>
+          <ul>        
+             <li>employee1/123</li>
+             <li>manager1/123</li>   
+          </ul>
+      </div>-->
+       </section>
+       
+   </body>
+</html>

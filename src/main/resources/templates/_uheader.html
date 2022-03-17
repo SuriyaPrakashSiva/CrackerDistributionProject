@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>CrackerDistribution</title>
+<link rel="stylesheet" type="text/css" th:href=@{/user.css}>
+</head>
+<body>
+	<div class="headColoumn">
+		<header>
+			<img th:src=@{name.JPG} height="65px" width="300px">
+		</header>
+	</div>
+	<div class="headColoumn">
+		<nav>
+			<a th:href="@{/mainCategory}"><button class="browse">Home</button></a>
+			<a th:href="@{/productList}"><button class="customerinfo">Product
+					List</button></a> <a th:href="@{/shoppingCart}"><button class="buynow">My
+					Cart</button></a>
+		</nav>
+	</div>
+	<div
+		style="float: right; width: 30%; background-color: black; text-align: center; color: yellow;">
+		<p th:text="${#temporals.format(localDateTime, 'dd-MM-yyyy HH:mm')}"></p>
+	</div>
+</body>
+</html>

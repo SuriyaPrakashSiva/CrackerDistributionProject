@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head >
+		<title>CrackerDistribution</title>
+		<link rel="stylesheet" type="text/css" th:href=@{/user.css}>
+	</head>
+	<body>
+		<th:block th:include="/_uheader"></th:block>
+	</body>
+	<section style="padding: 150px 300px 100px 400px">
+	<div id='categorySection'>
+		<div class="preview">
+			<img th:src=@{/std.jfif} height="150px" width="200px">
+			<p>Standard Crackers</p>
+			 <a th:href="@{/sProductList}"><button class="browse">Browse</button></a>
+		</div>
+		<div class="preview">
+			<img th:src=@{/fan.jfif} height="150px" width="200px">
+			<p>Fancy Crackers</p>
+			<a th:href="@{/fProductList}"><button class="browse">Browse</button></a>
+		</div>
+		<div class="preview">
+			<img th:src=@{/roc.jfif} height="150px" width="200px">
+			<p>Rocket Crackers</p>
+			<a th:href="@{/rProductList}"><button class="browse">Browse</button></a>
+		</div>
+	</div>
+	</section>	
+</html>

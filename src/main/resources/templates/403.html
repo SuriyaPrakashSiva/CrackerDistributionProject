@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head xmlns:th="http://www.thymeleaf.org"
+			xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+	<title>CrackerDistribution</title>
+	<link rel="stylesheet" type="text/css" th:href=@{/index.css}>
+
+</head>
+<body>
+	<div class="headColoumn" >
+		<header>
+			<img th:src=@{name.JPG} height="65px" width="300px">
+		</header>
+	</div>
+	<div class="headColoumn">
+		<nav>
+         		<a th:href="@{/admin/login}"><button class="signInBtn">Admin</button></a>
+		</nav>
+	</div>
+       <section>
+      <div class="page-title">Access Denied!</div>
+      <h3 style="color:red;">Sorry, you can not access this page!</h3>
+       </section>
+      
+       
+   </body>
+</html>

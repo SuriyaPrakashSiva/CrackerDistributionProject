@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<title>CrackerDistribution</title>
+<link rel="stylesheet" type="text/css" th:href=@{/index.css}>
+
+</head>
+<body>
+	<div class="headColoumn">
+		<header>
+			<img th:src=@{name.JPG} height="65px" width="300px">
+		</header>
+	</div>
+	<div class="headColoumn">
+		<nav>
+			<a th:href="@{/admin/login}"><button class="signInBtn">Admin</button></a>
+		</nav>
+	</div>
+
+	<section>
+		<p style="text-align: center; color: yellow;"
+			th:text="${#temporals.format(localDateTime, 'dd-MM-yyyy HH:mm')}"></p>
+		<div>
+			<img th:src=@{logo.png} height="250px" width="800px">
+		</div>
+		<h2>About us</h2>
+		<p>Cracker Distribution is a one stop destination for your happy
+			celebrations. We hold a lot of collections in a wide range of
+			varities. We take orders both wholesale and retail.</p>
+		<h2>Want to buy crackers? Please browse our cracker collections.</h2>
+	</section>
+	<article>
+		<a th:href="@{/mainCategory}"><button class="signInBtn">Browse</button></a>
+	</article>
+	<footer>
+		<address>Developed for HackEd</address>
+	</footer>
+</body>
+</html>
